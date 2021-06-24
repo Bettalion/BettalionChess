@@ -1,5 +1,4 @@
 package com.Bettalion;
-// ps = piece
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -14,12 +13,14 @@ public class Main {
     public static void main(String[] args) {
         // get pieces
         LinkedList<ChessPiece> piece = new LinkedList<>();
-
+        BufferedImage pieces = null;
         try {
-            BufferedImage pieces = ImageIO.read(new File("/Users/amoghsimhadri/BettalionFolder/Coding/Java/BettalionChess/src/Pieces.png"));
+            pieces = ImageIO.read(new File("/Users/amoghsimhadri/BettalionFolder/Coding/Java/BettalionChess/src/Pieces.png"));
+            System.out.println(pieces.getHeight());
+            System.out.println(pieces.getWidth());
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("lololololoo");
+            System.out.println("image loading error");
         }
 
 
@@ -30,17 +31,10 @@ public class Main {
                     pieceImgs[i] = pieces.getSubimage(x, y, 200, 200).getScaledInstance(64, 64, BufferedImage.SCALE_SMOOTH);
                     // takes a section of the spritemap and cuts it into pieces, then scales it to 64x64px
                     i++;
-                    System.out.println(i);
+                    System.out.println(x);
+                    System.out.println(y);
                 }
             }
-
-
-
-                imgs[ind]=all.getSubimage(x, y, 200, 200).getScaledInstance(64, 64, BufferedImage.SCALE_SMOOTH);
-                ind++;
-            }
-        }
-
 
 
 
